@@ -1,0 +1,20 @@
+{
+  "_id": {
+    "$oid": "663c62517e2ccc2b9f008627"
+  },
+  "local": "Jockey club SP",
+  "data": "2024-05-07T08:30:00Z",
+  "anunciante_id": "663c5e977e2ccc2b9f008612",
+  "cavalo_id": "663c5e977e2ccc2b9f008612",
+  "cliente_id": "663c5ecd7e2ccc2b9f008613",
+  "servico": "Venda",
+  "valor": "RS45000",
+  "status_compra": "solicitada pelo comprador" ou "aprovada pelo vendedor",
+  "entregador": "fulano",
+  "hospedagem": "id fo fulano hospedador"
+  "dias hospedados": 5
+}
+
+get
+post
+put

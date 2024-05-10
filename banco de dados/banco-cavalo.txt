@@ -1,0 +1,52 @@
+{
+  "_id": {
+    "$oid": "663c5f907e2ccc2b9f008619"
+  },
+  "cidade": "Sp-São Paulo",
+  "caracteristicas": {
+    "sexo": "M",
+    "idade": 8,
+    "tamanho": "2.5M",
+    "cor": "Preto",
+    "valor": "R$50000",
+    "tags": [
+      "calmo",
+      "forte",
+      "galopeiro"
+    ],
+    "raca": "Mangalarga Marchador"
+  },
+  "dono_id": "663c5e977e2ccc2b9f008612",
+  "servico": "Venda",
+  "descricao_cavalo": "Nascido dia tal  na cidade tal filho de um cavalo x com um y, ele foi domado as 3 anos e é muito agitado",
+  "nome": "Napoleão"
+}
+
+{
+  "_id": {
+    "$oid": "663c610b7e2ccc2b9f00861a"
+  },
+  "cidade": "Sp-Juquitiba",
+  "caracteristicas": {
+    "sexo": "F",
+    "idade": 8,
+    "tamanho": "2M",
+    "cor": "Marrom",
+    "valor": "R$25000",
+    "tags": [
+      "Temperamental",
+      "Timido",
+      "Musculoso"
+    ],
+    "raca": "Campolina"
+  },
+  "dono_id": "663c5e977e2ccc2b9f008612",
+  "servico": "Venda",
+  "descricao_cavalo": "Nascido dia tal  na cidade tal filho de um cavalo x com um y, ele foi domado as 7 anos e é muito agitado",
+  "nome": "Imperatriz"
+}
+
+get
+post
+put
+delete

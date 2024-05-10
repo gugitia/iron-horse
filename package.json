@@ -1,0 +1,15 @@
+{
+  "name": "iron-horse",
+  "version": "1.0.0",
+  "description": "iron-horse backend that comunicates with a flutter frontend and a mongoDB database",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gustavo Marquez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.3.4"
+  }
+}

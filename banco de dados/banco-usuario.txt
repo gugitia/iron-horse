@@ -1,0 +1,37 @@
+{
+  "_id": {
+    "$oid": "663c5e977e2ccc2b9f008612"
+  },
+  "email": "gugitia@gmail.com",
+  "senha": "#########",
+  "cpf": "89798754622",
+  "endereco": "Rua abobora vermelha, 853. São Paulo - SP",
+  "img_perfil": {
+    "$binary": {
+      "base64": "AQUI/VO/OS/BYTES/DA/IMAGEA==",
+      "subType": "00"
+    }
+  },
+  "nome_completo": "Gustavo Marquez"
+}
+
+{
+  "_id": {
+    "$oid": "663c5ecd7e2ccc2b9f008613"
+  },
+  "email": "ana@gmail.com",
+  "senha": "#########",
+  "cpf": "89784566674",
+  "endereco": "Rua abobora laranja, 93. São Paulo - SP",
+  "img_perfil": {
+    "$binary": {
+      "base64": "AQUI/VO/OS/BYTES/DA/IMAGEA==",
+      "subType": "00"
+    }
+  },
+  "nome_completo": "Ana Takaki"
+}
+
+get
+post
+put

@@ -1,0 +1,67 @@
+usuario:
+{
+	(gerado na hora da inserção) "_id": "54sad153wq8421d5",
+
+	"nome completo": "Gustavo Marquez",
+	"email": "gugitia@gmail.com",
+	"senha": "#########",
+	"cpf": "89798754622",
+	"endereço": "Rua abobora vermelha, 853. São Paulo - SP",
+	"img perfil": BinData(0, "AQUI_VÃO_OS_BYTES_DA_IMAGEM")
+
+}
+
+cavalo:
+{
+	(gerado na hora da inserção) "cavalo id": ("f2g145r2fd1631s24",
+
+	"dono id": ObjectId("54sad153wq8421d5"),
+	"descrição do cavalo": "Nascido dia tal  na cidade tal filho de um cavalo x com um y, ele foi domado as 3 anos e é muito agitado",
+	"serviço": "Venda",
+	"cidade": "Sp-São Paulo",
+	"caracteristicas": {
+        			"sexo": "M",
+        			"raça": "Mangalarga Marchador",
+				"idade": 8,
+				"tamanho": "2.5M",
+				"cor": "Preto",
+				"valor": "R$50000",
+				"tags": ["calmo", "forte", "galopeiro"]
+			    }
+
+}
+
+mensagens:
+{
+	(gerado na hora da inserção)id msg
+
+	"remetente id": "663c5e977e2ccc2b9f008612",
+	"destinatario id": "663c5ecd7e2ccc2b9f008613",
+	"conteudo": "Boa tarde tudo bem ?",
+	"data_hora_envio": ISODate("2024-05-07T08:30:00Z")
+}
+
+negocios:
+{
+	(id do negocio gerado auto)
+
+	"usuario anunciante id": ObjectId("54sad153wq8421d5"),
+	"usuario cliente id": ObjectId("s515s1d541242z4"),
+	"cavalo id": ObjectId(f2g145r2fd1631s24),
+	"serviço": "Venda",
+	"local": "Jockey club SP",
+	"data": ISODate("2024-05-07T08:30:00Z"),
+	"valor fechado": "RS45000"
+}
+
+logs:
+registros adversos
+
+reuniao com tt
+
+fazer apenas venda e troca na sprint 1, com a parte de cruzamento entrando em uma proxima etapa quando tiver infraestrutura para bancar uma ou mais estalagens espalhadas no brasil
+
+pensar como evitar ser passado a perna:
+pensando em como impossibilitar o cara de marcar com o outro pelo chat e fazer a negociação por fora, a gente pode habilitar que o chat só disponibiliza depois de efetuada a compra
+
+podemos cuidar do transporte do animal até o local contratando equipes locais

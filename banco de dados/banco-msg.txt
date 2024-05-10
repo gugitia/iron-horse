@@ -1,0 +1,29 @@
+{
+  "_id": {
+    "$oid": "663c61517e2ccc2b9f00861f"
+  },
+  "conteudo": "Boa tarde tudo bem ?",
+  "data_hora_envio": [
+    "02:40",
+    "09/05/2024"
+  ],
+  "destinatario_id": "663c5ecd7e2ccc2b9f008613",
+  "remetente_id": "663c5e977e2ccc2b9f008612"
+}
+
+{
+  "_id": {
+    "$oid": "663c62227e2ccc2b9f008620"
+  },
+  "conteudo": "Tudo Joia !",
+  "data_hora_envio": [
+    "02:41",
+    "09/05/2024"
+  ],
+  "destinatario_id": "663c5e977e2ccc2b9f008612",
+  "remetente_id": "663c5ecd7e2ccc2b9f008613"
+}
+
+get
+post
+delete
