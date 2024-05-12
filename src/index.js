@@ -4,6 +4,7 @@ const cors = require("cors");
 const { connect } = require("./config/server");
 
 const userRoutes = require("./routes/userRoutes")
+const messageRoutes = require("./routes/msgRoutes");
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(express.json());
 connect();
 
 app.use('/user', userRoutes);
+app.use('/msg', messageRoutes);
 
 
 app.listen(3400, () => {

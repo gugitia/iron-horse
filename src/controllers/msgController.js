@@ -3,66 +3,51 @@ const router = express.Router();
 const Message = require("../models/msg");
 
 const MsgController = {
-  async createUser(req, res) {
+  async createMessage(req, res) {
     try {
-      const { username, email, password } = req.body;
-      const newHorse = new Message({ username, email, password });
-      await newHorse.save();
-      res.status(201).json(newHorse);
+      const { message, senderId, getterId } = req.body;
+      const newMessage = new Message({ message, senderId, getterId });
+      await newMessage.save();
+      res.status(201).json(newMessage);
     } catch (error) {
-      console.error("Erro ao adicionar cavalo:", error);
-      res.status(500).json({ message: "Erro ao criar cavalo." });
+      console.error("Erro ao adicionar mensagem:", error);
+      res.status(500).json({ message: "Erro ao criar mensagem." });
     }
   },
 
-  async getAllUsers(req, res) {
+  async getAllMessages(req, res) {
     try {
-      const users = await User.find();
-      res.json(users);
+      const message = await Message.find();
+      res.json(message);
     } catch (error) {
-      console.error("Erro ao buscar usuários:", error);
-      res.status(500).json({ message: "Erro ao buscar usuários." });
+      console.error("Erro ao buscar mensagens:", error);
+      res.status(500).json({ message: "Erro ao buscar mensagens." });
     }
   },
 
-  async getUserById(req, res) {
+  async getMessageById(req, res) {
     try {
-      const user = await User.findById(req.params.id);
-      if (!user) {
-        return res.status(404).json({ message: "Usuário não encontrado." });
+      const message = await Message.findById(req.params.id);
+      if (!message) {
+        return res.status(404).json({ message: "Mensagem não encontrado." });
       }
-      res.json(user);
+      res.json(message);
     } catch (error) {
-      console.error("Erro ao buscar usuário por ID:", error);
-      res.status(500).json({ message: "Erro ao buscar usuário por ID." });
+      console.error("Erro ao buscar mensagem por ID:", error);
+      res.status(500).json({ message: "Erro ao buscar mensagem por ID." });
     }
   },
 
-  async updateUser(req, res) {
+  async deleteMessage(req, res) {
     try {
-      const user = await User.findByIdAndUpdate(req.params.id, req.body, {
-        new: true,
-      });
-      if (!user) {
-        return res.status(404).json({ message: "Usuário não encontrado." });
+      const message = await Message.findByIdAndDelete(req.params.id);
+      if (!message) {
+        return res.status(404).json({ message: "Mensagem não encontrado." });
       }
-      res.json(user);
+      res.json({ message: "Mensagem excluído com sucesso." });
     } catch (error) {
-      console.error("Erro ao atualizar usuário por ID:", error);
-      res.status(500).json({ message: "Erro ao atualizar usuário por ID." });
-    }
-  },
-
-  async deleteUser(req, res) {
-    try {
-      const user = await User.findByIdAndDelete(req.params.id);
-      if (!user) {
-        return res.status(404).json({ message: "Usuário não encontrado." });
-      }
-      res.json({ message: "Usuário excluído com sucesso." });
-    } catch (error) {
-      console.error("Erro ao excluir usuário por ID:", error);
-      res.status(500).json({ message: "Erro ao excluir usuário por ID." });
+      console.error("Erro ao excluir mensagem por ID:", error);
+      res.status(500).json({ message: "Erro ao excluir mensagem por ID." });
     }
   },
 };

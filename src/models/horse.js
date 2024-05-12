@@ -13,25 +13,25 @@ const horseSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  caracteristicas: {
-    sexo: {
+  characteristics: {
+    sex: {
       type: String,
       enum: ["M", "F"],
       required: true,
     },
-    idade: {
+    age: {
       type: Number,
       required: true,
     },
-    tamanho: {
+    height: {
       type: String,
       required: true,
     },
-    cor: {
+    color: {
       type: String,
       required: true,
     },
-    valor: {
+    value: {
       type: String,
       required: true,
     },

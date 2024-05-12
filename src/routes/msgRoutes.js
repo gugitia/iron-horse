@@ -3,10 +3,9 @@ const router = express.Router();
 const MsgController = require("../controllers/msgController");
 
 // Rotas para o recurso de usuário
-router.get("/msg", MsgController.getAllUsers);
-router.get("/msg/:id", MsgController.getUserById);
-router.post("/msg", MsgController.createUser);
-router.put("/msg/:id", MsgController.updateUser);
-router.delete("/msg/:id", MsgController.deleteUser);
+router.get("/", MsgController.getAllMessages);
+router.get("/:id", MsgController.getMessageById);
+router.post("/", MsgController.createMessage);
+router.delete("/:id", MsgController.deleteMessage);
 
 module.exports = router;

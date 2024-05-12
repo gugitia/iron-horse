@@ -5,7 +5,7 @@ const Horse = require("../models/horse");
 const HorseController = {
   async createUser(req, res) {
     try {
-      const { username, email, password } = req.body;
+      const { horseName, description, service  } = req.body;
       const newHorse = new Horse({ username, email, password });
       await newHorse.save();
       res.status(201).json(newHorse);
