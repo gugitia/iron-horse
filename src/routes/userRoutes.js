@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const UserController = require("../controllers/userController");
+const userController = require("../controllers/userController");
 
 // Rotas para o recurso de usuário
-router.get("/users", UserController.getAllUsers);
-router.get("/users/:id", UserController.getUserById);
-router.post("/users", UserController.createUser);
-router.put("/users/:id", UserController.updateUser);
-router.delete("/users/:id", UserController.deleteUser);
+router.get('/:id', userController.getUserById);
+router.get('/', userController.getAllUsers);
+router.post('/', userController.createUser);
+router.put("/:id", userController.updateUser);
+router.delete("/:id", userController.deleteUser);
 
 module.exports = router;
