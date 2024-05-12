@@ -5,8 +5,9 @@ const User = require("../models/user");
 const UserController = {
   async createUser(req, res) {
     try {
-      const { username, email, password } = req.body;
-      const newUser = new User({ username, email, password });
+      const { fullname, username, email, password, document, adress, profileImage } = req.body;
+
+      const newUser = new User({ fullname, username, email, password, document, adress, profileImage });
       await newUser.save();
       res.status(201).json(newUser);
     } catch (error) {
@@ -43,6 +44,7 @@ const UserController = {
       const user = await User.findByIdAndUpdate(req.params.id, req.body, {
         new: true,
       });
+  
       if (!user) {
         return res.status(404).json({ message: "Usuário não encontrado." });
       }
