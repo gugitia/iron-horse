@@ -3,7 +3,8 @@ const cors = require("cors");
 
 const { connect } = require("./config/server");
 
-const userRoutes = require("./routes/userRoutes")
+const userRoutes = require("./routes/userRoutes");
+const horseRoutes = require("./routes/horseRoutes");
 const messageRoutes = require("./routes/msgRoutes");
 const dealRoutes = require("./routes/dealRoutes");
 
@@ -15,6 +16,7 @@ app.use(express.json());
 connect();
 
 app.use('/user', userRoutes);
+app.use('/horse', horseRoutes);
 app.use('/msg', messageRoutes);
 app.use('/deal', dealRoutes);
 

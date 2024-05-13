@@ -38,7 +38,7 @@ const horseSchema = new mongoose.Schema({
     tags: {
       type: [String],
     },
-    raca: {
+    breed: {
       type: String,
       required: true,
     },

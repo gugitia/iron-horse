@@ -3,10 +3,18 @@ const router = express.Router();
 const Horse = require("../models/horse");
 
 const HorseController = {
-  async createUser(req, res) {
+  async createHorse(req, res) {
     try {
-      const { horseName, description, service  } = req.body;
-      const newHorse = new Horse({ username, email, password });
+      const { horseName, description, service, characteristics, ownerId, homeCity, Images } = req.body;
+      const newHorse = new Horse({ 
+        horseName, 
+        description, 
+        service, 
+        characteristics, 
+        ownerId, 
+        homeCity, 
+        Images 
+    });
       await newHorse.save();
       res.status(201).json(newHorse);
     } catch (error) {
@@ -15,54 +23,54 @@ const HorseController = {
     }
   },
 
-  async getAllUsers(req, res) {
+  async getAllHorses(req, res) {
     try {
-      const users = await User.find();
-      res.json(users);
+      const horses = await Horse.find();
+      res.json(horses);
     } catch (error) {
-      console.error("Erro ao buscar usuários:", error);
-      res.status(500).json({ message: "Erro ao buscar usuários." });
+      console.error("Erro ao buscar cavalos:", error);
+      res.status(500).json({ message: "Erro ao buscar cavalos." });
     }
   },
 
-  async getUserById(req, res) {
+  async getHorseById(req, res) {
     try {
-      const user = await User.findById(req.params.id);
-      if (!user) {
-        return res.status(404).json({ message: "Usuário não encontrado." });
+      const horse = await Horse.findById(req.params.id);
+      if (!horse) {
+        return res.status(404).json({ message: "Cavalo não encontrado." });
       }
-      res.json(user);
+      res.json(horse);
     } catch (error) {
-      console.error("Erro ao buscar usuário por ID:", error);
-      res.status(500).json({ message: "Erro ao buscar usuário por ID." });
+      console.error("Erro ao buscar cavalo por ID:", error);
+      res.status(500).json({ message: "Erro ao buscar cavalo por ID." });
     }
   },
 
-  async updateUser(req, res) {
+  async updateHorse(req, res) {
     try {
-      const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+      const horse = await Horse.findByIdAndUpdate(req.params.id, req.body, {
         new: true,
       });
-      if (!user) {
-        return res.status(404).json({ message: "Usuário não encontrado." });
+      if (!horse) {
+        return res.status(404).json({ message: "Cavalo não encontrado." });
       }
-      res.json(user);
+      res.json(horse);
     } catch (error) {
-      console.error("Erro ao atualizar usuário por ID:", error);
-      res.status(500).json({ message: "Erro ao atualizar usuário por ID." });
+      console.error("Erro ao atualizar Cavalo por ID:", error);
+      res.status(500).json({ message: "Erro ao atualizar cavalo por ID." });
     }
   },
 
-  async deleteUser(req, res) {
+  async deleteHorse(req, res) {
     try {
-      const user = await User.findByIdAndDelete(req.params.id);
-      if (!user) {
-        return res.status(404).json({ message: "Usuário não encontrado." });
+      const horse = await Horse.findByIdAndDelete(req.params.id);
+      if (!horse) {
+        return res.status(404).json({ message: "Cavalo não encontrado." });
       }
-      res.json({ message: "Usuário excluído com sucesso." });
+      res.json({ message: "Cavalo excluído com sucesso." });
     } catch (error) {
-      console.error("Erro ao excluir usuário por ID:", error);
-      res.status(500).json({ message: "Erro ao excluir usuário por ID." });
+      console.error("Erro ao excluir cavalo por ID:", error);
+      res.status(500).json({ message: "Erro ao excluir cavalo por ID." });
     }
   },
 };
