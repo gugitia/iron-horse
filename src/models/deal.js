@@ -35,7 +35,7 @@ const dealSchema = new mongoose.Schema({
   },
   delivery: {
     type: String,
-    required: true,
+    required: false,
   },
   host: {
     type: String,
@@ -51,6 +51,6 @@ const dealSchema = new mongoose.Schema({
   },
 });
 
-const Deal = mongoose.model("Deal", dealSchema);
+const Deal = mongoose.model("Deal", dealSchema, "Negocios");
 
 module.exports = Deal;

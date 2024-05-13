@@ -61,6 +61,6 @@ const horseSchema = new mongoose.Schema({
   },
 });
 
-const Horse = mongoose.model("Horse", horseSchema);
+const Horse = mongoose.model("Horse", horseSchema, "Cavalo");
 
 module.exports = Horse;

@@ -5,6 +5,7 @@ const { connect } = require("./config/server");
 
 const userRoutes = require("./routes/userRoutes")
 const messageRoutes = require("./routes/msgRoutes");
+const dealRoutes = require("./routes/dealRoutes");
 
 const app = express();
 
@@ -15,6 +16,7 @@ connect();
 
 app.use('/user', userRoutes);
 app.use('/msg', messageRoutes);
+app.use('/deal', dealRoutes);
 
 
 app.listen(3400, () => {

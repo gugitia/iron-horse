@@ -3,66 +3,53 @@ const router = express.Router();
 const Deal = require("../models/deal");
 
 const DealController = {
-  async createUser(req, res) {
+  async createDeal(req, res) {
     try {
-      const { username, email, password } = req.body;
-      const newHorse = new Deal({ username, email, password });
-      await newHorse.save();
-      res.status(201).json(newHorse);
+      const { place, date, sellerId, horseId, buyerId, service, value, status } = req.body;
+      const newDeal = new Deal({ place, date, sellerId, horseId, buyerId, service, value, status });
+      await newDeal.save();
+      res.status(201).json(newDeal);
     } catch (error) {
-      console.error("Erro ao adicionar cavalo:", error);
-      res.status(500).json({ message: "Erro ao criar cavalo." });
+      console.error("Erro ao adicionar acordo:", error);
+      res.status(500).json({ message: "Erro ao criar acordo." });
     }
   },
 
-  async getAllUsers(req, res) {
+  async getAllDeals(req, res) {
     try {
-      const users = await User.find();
-      res.json(users);
+      const deals = await Deal.find();
+      res.json(deals);
     } catch (error) {
-      console.error("Erro ao buscar usuários:", error);
-      res.status(500).json({ message: "Erro ao buscar usuários." });
+      console.error("Erro ao buscar acordos:", error);
+      res.status(500).json({ message: "Erro ao buscar acordos." });
     }
   },
 
-  async getUserById(req, res) {
+  async getDealById(req, res) {
     try {
-      const user = await User.findById(req.params.id);
-      if (!user) {
-        return res.status(404).json({ message: "Usuário não encontrado." });
+      const deal = await Deal.findById(req.params.id);
+      if (!deal) {
+        return res.status(404).json({ message: "Acordo não encontrado." });
       }
-      res.json(user);
+      res.json(deal);
     } catch (error) {
-      console.error("Erro ao buscar usuário por ID:", error);
-      res.status(500).json({ message: "Erro ao buscar usuário por ID." });
+      console.error("Erro ao buscar acordos por ID:", error);
+      res.status(500).json({ message: "Erro ao buscar acordos por ID." });
     }
   },
 
-  async updateUser(req, res) {
+  async updateDeal(req, res) {
     try {
-      const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+      const deal = await Deal.findByIdAndUpdate(req.params.id, req.body, {
         new: true,
       });
-      if (!user) {
-        return res.status(404).json({ message: "Usuário não encontrado." });
+      if (!deal) {
+        return res.status(404).json({ message: "Acordo não encontrado." });
       }
-      res.json(user);
+      res.json(deal);
     } catch (error) {
-      console.error("Erro ao atualizar usuário por ID:", error);
-      res.status(500).json({ message: "Erro ao atualizar usuário por ID." });
-    }
-  },
-
-  async deleteUser(req, res) {
-    try {
-      const user = await User.findByIdAndDelete(req.params.id);
-      if (!user) {
-        return res.status(404).json({ message: "Usuário não encontrado." });
-      }
-      res.json({ message: "Usuário excluído com sucesso." });
-    } catch (error) {
-      console.error("Erro ao excluir usuário por ID:", error);
-      res.status(500).json({ message: "Erro ao excluir usuário por ID." });
+      console.error("Erro ao atualizar acordo por ID:", error);
+      res.status(500).json({ message: "Erro ao atualizar acordo por ID." });
     }
   },
 };
