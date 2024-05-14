@@ -65,3 +65,33 @@ pensar como evitar ser passado a perna:
 pensando em como impossibilitar o cara de marcar com o outro pelo chat e fazer a negociação por fora, a gente pode habilitar que o chat só disponibiliza depois de efetuada a compra
 
 podemos cuidar do transporte do animal até o local contratando equipes locais
+
+mongodb+srv://gugitia:OAvY2YFT2Uc95DVj@cluster0.woumhwq.mongodb.net/
+
+
+
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://gugitia:<password>@cluster0.q0catrp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+
+async function run() {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);

@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const bcrypt = require('bcrypt');
 const User = require("../models/user");
 
 const UserController = {
@@ -7,13 +8,38 @@ const UserController = {
     try {
       const { fullname, username, email, password, document, adress, profileImage } = req.body;
 
-      const newUser = new User({ fullname, username, email, password, document, adress, profileImage });
+      const saltRounds = 10
+      const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+      const newUser = new User({ fullname, username, email, hashedPassword, document, adress, profileImage });
+
       await newUser.save();
       res.status(201).json(newUser);
     } catch (error) {
       console.error("Erro ao criar usuário:", error);
       res.status(500).json({ message: "Erro ao criar usuário." });
     }
+  },
+
+  async loginUser(req, res) {
+    try {
+    const { email, password } = req.body;
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(400).json({ message: 'E-mail incorreto ou não registrado.' });
+  }
+    const isPasswordCorrect = await bcrypt.compare(password, user.hashedPassword);
+
+    if (!isPasswordCorrect) {
+      return res.status(400).json({ message: 'E-mail ou senha incorretos.' });
+  }
+    res.json({ message: 'Login bem-sucedido!' });
+}
+  catch (error) {
+    console.error('Erro ao fazer login:', error);
+    res.status(500).json({ message: 'Erro ao fazer login.' });
+}
   },
 
   async getAllUsers(req, res) {
