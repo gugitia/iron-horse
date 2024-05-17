@@ -34,7 +34,7 @@ const UserController = {
     if (!isPasswordCorrect) {
       return res.status(400).json({ message: 'E-mail ou senha incorretos.' });
   }
-    res.json({ message: 'Login bem-sucedido!' });
+    res.json({ id: user._id });
 }
   catch (error) {
     console.error('Erro ao fazer login:', error);
@@ -54,7 +54,7 @@ const UserController = {
 
   async getUserById(req, res) {
     try {
-      const user = await User.findById(req.params.id);
+      const user = await User.findById(req.headers.authorization);
       if (!user) {
         return res.status(404).json({ message: "Usuário não encontrado." });
       }
