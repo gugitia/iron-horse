@@ -46,6 +46,19 @@ const HorseController = {
     }
   },
 
+  async getHorseByOwner(req, res) {
+    try {
+    const  horses  = await Horse.find({ownerId: req.params.ownerId});
+    if (horses.length === 0) {
+      return res.status(404).json({ message: "O usuário não possui cavalos" });
+  }
+    res.json(horses)
+  }catch (error) {
+    console.error(error)
+    res.status(500).json({message: "erro ao buscar cavalos"})
+  }
+  },
+
   async updateHorse(req, res) {
     try {
       const horse = await Horse.findByIdAndUpdate(req.params.id, req.body, {

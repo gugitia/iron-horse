@@ -3,10 +3,11 @@ const router = express.Router();
 const HorseController = require("../controllers/horseController");
 
 // Rotas para o recurso de usuário
-router.get("/horse", HorseController.getAllHorses);
-router.get("/horse/:id", HorseController.getHorseById);
-router.post("/horse", HorseController.createHorse);
-router.put("/horse/:id", HorseController.updateHorse);
-router.delete("/horse/:id", HorseController.deleteHorse);
+router.get("/", HorseController.getAllHorses);
+router.get("/:id", HorseController.getHorseById);
+router.get("/userHorses/:id", HorseController.getHorseByOwner);
+router.post("/", HorseController.createHorse);
+router.put("/:id", HorseController.updateHorse);
+router.delete("/:id", HorseController.deleteHorse);
 
 module.exports = router;
