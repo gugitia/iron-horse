@@ -38,6 +38,28 @@ const MsgController = {
     }
   },
 
+  async getChatMessages(req, res) {
+    try {
+      const { userId1, userId2 } = req.body;
+      const messages = await Message.find({
+        $or: [
+          { senderId: userId1, getterId: userId2 },
+          { senderId: userId2, getterId: userId1 }
+        ]
+      }).sort({ createdAt: 1 });
+
+      if (!messages) {
+        return res.status(404).json({ message: "Mensagens não encontradas para essa conversa"})
+      }
+
+      res.status(200).json(messages);
+      
+    } catch(error) {
+      console.error("Erro ao encontrar conversas para esse chat", error);
+      res.status(500).json({ message: "Erro ao buscar mensagens para esse chat" });
+    }
+  },
+
   async deleteMessage(req, res) {
     try {
       const message = await Message.findByIdAndDelete(req.params.id);

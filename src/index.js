@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 
+require('dotenv').config();
+
 const { connect } = require("./config/server");
 
 const userRoutes = require("./routes/userRoutes");
@@ -9,6 +11,8 @@ const messageRoutes = require("./routes/msgRoutes");
 const dealRoutes = require("./routes/dealRoutes");
 
 const app = express();
+
+const PORT = process.env.PORT || 3400;
 
 app.use(cors());
 app.use(express.json());
@@ -21,6 +25,6 @@ app.use('/msg', messageRoutes);
 app.use('/deal', dealRoutes);
 
 
-app.listen(3400, () => {
-  console.log("Servidor iniciado na porta 3400.");
+app.listen(PORT, () => {
+  console.log(`Servidor iniciado na porta ${PORT}.`);
 });

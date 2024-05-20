@@ -5,6 +5,7 @@ const MsgController = require("../controllers/msgController");
 // Rotas para o recurso de usuário
 router.get("/", MsgController.getAllMessages);
 router.get("/:id", MsgController.getMessageById);
+router.post("/chat", MsgController.getChatMessages);
 router.post("/", MsgController.createMessage);
 router.delete("/:id", MsgController.deleteMessage);
 

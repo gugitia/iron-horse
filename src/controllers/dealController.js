@@ -38,6 +38,32 @@ const DealController = {
     }
   },
 
+  async getDealByBuyer(req, res) {
+    try {
+      const deal = await Deal.find({buyerId: req.params.buyerId});
+      if (!deal) {
+        return res.status(404).json({ message: "não foi encontrado nenhum acordo para esse comprador"})
+      }
+      res.json(deal);
+    } catch (error) {
+      console.error("erro ao buscar acordos para esse comprador", error);
+      res.status(500).json({ message: "erro ao buscar acordos para esse comprador"})
+    }
+  },
+
+  async getDealBySeller(req, res) {
+    try {
+      const deal = await Deal.find({sellerId: req.params.sellerId});
+      if (!deal) {
+        return res.status(404).json({ message: "não foi encontrado nenhum acordo para esse vendedor"})
+      }
+      res.json(deal);
+    } catch (error) {
+      console.error("erro ao buscar acordos para esse vendedor", error);
+      res.status(500).json({ message: "erro ao buscar acordos para esse vendedor"})
+    }
+  },
+
   async updateDeal(req, res) {
     try {
       const deal = await Deal.findByIdAndUpdate(req.params.id, req.body, {
